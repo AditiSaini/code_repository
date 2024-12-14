@@ -67,3 +67,5 @@ s = Solution()
 board = [["B", "1", "E", "1", "B"],["B", "1", "M", "1", "B"],["B", "1", "1", "1", "B"], ["B", "B", "B", "B", "B"]]
 click = [1,2]
 print(s.updateBoard(board, click))
+
+#Uber
