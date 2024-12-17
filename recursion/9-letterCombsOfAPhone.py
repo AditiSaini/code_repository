@@ -15,7 +15,8 @@ class Solution:
                 for idx in range(len(alphas)):
                     char = alphas[idx]
                     recurse_comb(digits[id_+1:], current_permute+char)
-        recurse_comb(digits, '')
+        if len(digits)!=0:
+            recurse_comb(digits, '')
         return all_combs
 
 s = Solution()
