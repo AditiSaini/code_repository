@@ -34,6 +34,7 @@ class Solution:
             return total_sum + left_sum + right_sum
         return recurseSumBSTv2(root)
 
+#Template code to build the tree
 def build_tree(values):
     if not values:
         return None
