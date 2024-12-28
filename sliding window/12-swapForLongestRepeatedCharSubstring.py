@@ -1,4 +1,37 @@
 class Solution:
+    def maxRepOpt2(self, text: str) -> int:
+        res = 0
+        groups = {}
+        for idx in range(len(text)):
+            ch = text[idx]
+            if ch in groups:
+                groups[ch].append(idx)
+            else:
+                groups[ch] = [idx]
+        for ch in groups:
+            cur = 1
+            pre = 0
+            SUM = 0
+            for idx in range(1, len(groups[ch])):
+                prev_index = groups[ch][idx-1]
+                index = groups[ch][idx]
+                #Index difference 1
+                if index == prev_index+1:
+                    cur+=1
+                #Index difference 2 (skip one char)
+                elif index == prev_index+2:
+                    pre = cur
+                    cur = 1
+                #More than one char difference
+                else:
+                    cur = 1
+                    pre = 0
+                SUM = max(SUM, cur+pre)
+            if SUM < len(groups[ch]):
+                SUM+=1
+            res = max(res, SUM)
+        return res
+    
     def maxRepOpt1(self, text: str) -> int:
         text_dict = {}
         max_len_possible = 1
@@ -30,5 +63,5 @@ class Solution:
         return max_repeated_char
 
 s = Solution()
-testcases = ["ababa", "aaabaaa", "aaaaa", "bbababaaaa"]
-print(s.maxRepOpt1(testcases[3]))
+testcases = ["aaabbaaa", "acbaaa", "ababa", "aaabaaa", "aaaaa", "bbababaaaa"]
+print(s.maxRepOpt2(testcases[2]))
