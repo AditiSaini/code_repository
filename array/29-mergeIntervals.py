@@ -4,7 +4,6 @@ class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
         intervals_sorted = sorted(intervals, key=lambda x: x[0])
         all_intervals = [intervals_sorted[0]]
-        prev_interval = intervals_sorted[0]
         for idx in range(1, len(intervals_sorted)):
             prev_interval = all_intervals[-1]
             interval = intervals_sorted[idx]
