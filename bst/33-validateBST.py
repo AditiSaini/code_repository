@@ -16,3 +16,5 @@ class Solution:
             return False
         self.prev = root.val
         return self.isValidBST(root.right)
+
+# Leetcode Link: https://leetcode.com/problems/validate-binary-search-tree/

@@ -4,7 +4,7 @@ class TreeNode:
         self.val = val
         self.left = left
         self.right = right
-        
+
 class Solution:
     def __init__(self):
         self.val_dict = {}
@@ -25,3 +25,5 @@ class Solution:
         elif self.val_dict[root.val]==self.mode:
             self.nodes.append(root.val)
         return self.nodes
+
+# Leetcode Link: https://leetcode.com/problems/find-mode-in-binary-search-tree/
