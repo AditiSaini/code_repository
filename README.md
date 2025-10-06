@@ -10,5 +10,8 @@
 - For BFS in a unweighted (un)directed graph, use a queue and a set of visited nodes
 - For BFS in a weighted (un)directed graph, use a minimizing heap and a graph of min weight/distance to reach node if the intent is to reach all nodes in a minimum amount of weights/ distances, e.g. q38
 
+### Good ML resources
+- LLM Inference: https://gaurigupta19.github.io/llms/distributed%20ml/optimization/2025/10/02/efficient-ml.html
+
 ### Next on the List
 - Link: https://leetcode.com/problems/minimum-height-trees
