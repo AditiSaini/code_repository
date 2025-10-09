@@ -15,3 +15,8 @@
 
 ### Next on the List
 - Link: https://leetcode.com/problems/minimum-height-trees
+- https://leetcode.com/problems/longest-increasing-path-in-a-matrix/description/
+- https://leetcode.com/problems/longest-increasing-subsequence/description/
+- https://leetcode.com/problems/longest-repeating-character-replacement/description/
+- https://leetcode.com/problems/lru-cache	
+- https://github.com/liquidslr/leetcode-company-wise-problems/blob/main/Adobe/2.%20Three%20Months.csv 
