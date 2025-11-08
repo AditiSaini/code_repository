@@ -4,7 +4,7 @@ class TreeNode:
         self.val = val
         self.left = left
         self.right = right
-class Solution:
+class Solution1:
     def __init__(self):
         self.level_nodes = defaultdict(list)
         self.all_levels = []
@@ -26,5 +26,22 @@ class Solution:
                 values.append(node)
             self.all_levels.append(values)
         return self.all_levels
+    
+class Solution2:
+    def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+        if root is None:
+            return []
+        all_levels = []
+        q = deque()
+        q.append(root)
+        while q:
+            all_levels.append([node.val for node in q])
+            for _ in range(len(q)):
+                cur = q.popleft()
+                if cur.left:
+                    q.append(cur.left)
+                if cur.right:
+                    q.append(cur.right)
+        return all_levels
     
 # Leetcode link : https://leetcode.com/problems/binary-tree-level-order-traversal/
