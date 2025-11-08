@@ -17,7 +17,7 @@ class Solution:
             right = self.isSameTree(root1.right, root2.right)
         return left and right
 
-    def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
+    def isSubtreeIterative(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
         if root is None and subRoot is None:
             return True
         elif root is None or subRoot is None:
@@ -34,3 +34,16 @@ class Solution:
             if cur.right:
                 q.append(cur.right)
         return False
+    def isSubtreeRecursive(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
+        if root is None and subRoot is None:
+            return True
+        elif root is None or subRoot is None:
+            return False
+        if self.isSameTree(root, subRoot):
+            return True
+        left = right = False
+        if root.left:
+            left = self.isSubtree(root.left, subRoot)
+        if root.right:
+            right = self.isSubtree(root.right, subRoot)
+        return left or right
