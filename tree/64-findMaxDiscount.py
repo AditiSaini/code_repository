@@ -31,7 +31,6 @@ class DiscountCalculator:
         self.node_dependency = self.preprocess()
         
     def preprocess(self) -> Dict[str, int]:
-        queue = deque()
         #Add product nodes in the graph 
         for p in self.products:
             _, category = p.split(':')
@@ -39,15 +38,15 @@ class DiscountCalculator:
         #Node dependency for products
         node_dependency = defaultdict(set)
         for p in self.products:
-            queue = deque()
-            queue.append(p)
+            stack = []
+            stack.append(p)
             visited = set()
-            while queue:
-                node = queue.popleft()
+            while stack:
+                node = stack.pop()
                 visited.add(node)
                 for neigh in self.categories[node]:
                     if neigh not in visited:
-                        queue.append(neigh)
+                        stack.append(neigh)
             node_dependency[p] = visited
         return node_dependency
     
