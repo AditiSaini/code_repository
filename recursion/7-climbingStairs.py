@@ -21,3 +21,22 @@ class Solution:
                     data2 = buffer[current_step+2]
                 return data1 + data2
         return climb_recurse(0, n)
+
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        if n==0:
+            return 0
+        elif n==1:
+            return 1
+        elif n==2:
+            return 2
+        cur_val = prev_val = 2
+        prev_prev_val = 1
+        for i in range(3, n+1):
+            cur_val = prev_val + prev_prev_val
+            prev_prev_val = prev_val 
+            prev_val = cur_val
+        return cur_val
+
+            
+# Leetcode Link : https://leetcode.com/problems/climbing-stairs/
