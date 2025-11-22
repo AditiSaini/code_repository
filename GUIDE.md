@@ -22,7 +22,20 @@
 9. Update max_window_size with max(max_window_size, right-left+1)
 10. return max_window_size
 
-### Question 3: Longest Consecutive Sequence
+### Question 3: Minimum Window Substring
+- Intuition: move right pointer such that it has all char in string t and then update left pointer to min length such that all char in t in that substring
+- Initialize variables start, end, window = (cur_start, cur_end), target_remaining to keep track of elements that are not in the current window subset 
+- Initialise start = 0 and window = (0, inf)
+- Use a for loop as end index and with index 0
+- continue to iterate in the for loop until we have all the char in target string in the current string and keep track using freq_t
+- freq_t = 0; just enough letters from target, freq_t<1: more than enough char, freq_t>1: needs more char in the window
+- decrement freq_t at each iteraction of for loop and decrement target_remaining if freq_t[char] > 0
+- in the for loop if target_remaining char == 0: increase start index until all elements satisfy the condition from target string
+- update window if end-start < window size
+- finally increment start+=1, target_remaining+=1 and freq[char at start]+=1 to expand to other combinations
+- in the end, return window substring  
+
+### Question 4: Longest Consecutive Sequence
 1. Convert list into a set
 2. Use a for loop to parse each element in the set 
     a. Check if n-1 exists, if yes then continue the loop
