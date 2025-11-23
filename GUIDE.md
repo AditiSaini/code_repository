@@ -22,7 +22,7 @@
 9. Update max_window_size with max(max_window_size, right-left+1)
 10. return max_window_size
 
-### Question 3: Minimum Window Substring
+### Question 3: Minimum Window Substring (q79)
 - Intuition: move right pointer such that it has all char in string t and then update left pointer to min length such that all char in t in that substring
 - Initialize variables start, end, window = (cur_start, cur_end), target_remaining to keep track of elements that are not in the current window subset 
 - Initialise start = 0 and window = (0, inf)
@@ -35,7 +35,25 @@
 - finally increment start+=1, target_remaining+=1 and freq[char at start]+=1 to expand to other combinations
 - in the end, return window substring  
 
-### Question 4: Longest Consecutive Sequence
+### Question 4: Longest Palindromic Substring (q59)
+- Example strings are 'babad' and 'cbbd'
+- Think of parsing through each character in the string and then expanding to see maximum possible palindrome 
+- The expansion will be in 2 ways: (1) Expand from the center, (2) Expand with 2 elements in the center
+- Create a helper function that gives the maximum palindrome length based on either 1/2 centers
+- Initialize two pointers p1 and p2 and use a for loop for p2 that starts with 1
+- p1 will always be -1 of -2
+- Iterate until longest palindromic substring is found 
+
+### Question 5: Swap for longest repeated character substring (q81)
+- Get frequency of all characters in text all_freq_dict
+- Maintain a freq dictionary for a window and use left=0 and right in a for loop
+- In for loop, increment char frequency  in window_freq_dict and get highest freq and max_char (using a helper function)
+- If window (right-left+1)-max_freq>1, use a while loop to increment left pointer, decrement left char in window_freq_dict and window size
+- Update longest = max(longest, min(window, all_freq_dict[max_char]))
+- Finally return longest at the end of the for loop 
+
+
+### Question 6: Longest Consecutive Sequence
 1. Convert list into a set
 2. Use a for loop to parse each element in the set 
     a. Check if n-1 exists, if yes then continue the loop
