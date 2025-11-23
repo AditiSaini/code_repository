@@ -15,3 +15,12 @@ class Solution:
             left+=1
             right-=1
         return True
+    
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        final = ""
+        for ch in s:
+            cur = ch.lower()
+            if cur.isalnum():
+                final+=cur
+        return final == final[::-1]
