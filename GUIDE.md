@@ -1,4 +1,5 @@
 # BLIND 75
+
 ## STRINGS
 
 ### Question 1: Longest Substring Without Repeating Characters (q56)
@@ -52,7 +53,6 @@
 - Update longest = max(longest, min(window, all_freq_dict[max_char]))
 - Finally return longest at the end of the for loop 
 
-
 ### Question 6: Longest Consecutive Sequence
 1. Convert list into a set
 2. Use a for loop to parse each element in the set 
@@ -60,6 +60,7 @@
     b. Use a while loop inside it to check if there was an n+1 in the set and continue to capture the max window 
 
 ## TRIE
+
 ### Question 1: Creating Trie
 1. Create a Node class with value (str), is a leaf node (bool) and child (dict)
 2. Create a common method called findNode that parses through the nodes to get to the final node
@@ -78,3 +79,7 @@
 2. Use a for loop that traverses the nums array i (1 to len(nums)) and then another loop that traverses j (0 to i)
 3. Update dp array as max(dp[i], dp[j]+1) if nums[i]>nums[j]
 4. return max(dp)
+
+### Question 3: Longest Common Subsequence
+1. Initialise a dp array with text1 and text2 both len+1 with 0
+2. If text1[i]==text2[j]: dp[i][j] = dp[i-1][j-1]+1; else dp[i][j] = max(dp[i-1][j], dp[i][j-1])
