@@ -60,14 +60,21 @@
     b. Use a while loop inside it to check if there was an n+1 in the set and continue to capture the max window 
 
 ## TRIE
-### Question 2: Creating Trie
+### Question 1: Creating Trie
 1. Create a Node class with value (str), is a leaf node (bool) and child (dict)
 2. Create a common method called findNode that parses through the nodes to get to the final node
 3. Use the findNode method in both prefix and search
 
 ## DP
-### Question 3: Coin Change (q__, dp)
+
+### Question 1: Coin Change (q__, dp) (q70)
 1. Initialise dp array minAmt to float('inf')
 2. Find the base case minAmt[0]=0
 3. Iterative condition that iterates through amount from 1 to N and coins from 1 to C with condition minAmt[i] = min(minAmt[i], minAmt[i-c]+1)
 4. Finally, return minAmt[-1]
+
+### Question 2: Longest Increasing Subsequence (q71)
+1. Initialise a dp array of size given nums array 
+2. Use a for loop that traverses the nums array i (1 to len(nums)) and then another loop that traverses j (0 to i)
+3. Update dp array as max(dp[i], dp[j]+1) if nums[i]>nums[j]
+4. return max(dp)
