@@ -83,3 +83,15 @@
 ### Question 3: Longest Common Subsequence
 1. Initialise a dp array with text1 and text2 both len+1 with 0
 2. If text1[i]==text2[j]: dp[i][j] = dp[i-1][j-1]+1; else dp[i][j] = max(dp[i-1][j], dp[i][j-1])
+
+## SLIDING WINDOW
+
+### Question 1: Trapping Rain Water
+1. Initialize two pointers left (at the beginning of the array) and right (at the end of the array)
+2. Keep pointers for max_left_height value and max_right_height value and variable water to keep track of water accumulated until now
+3. Update max left and right height based on current left and right height 
+4. Use a variable cur_val of type string to track which pointer was updated in the last run: left/ right
+5. Based on the cur_val, update the value of water += (max_left/right_height - current left/right_height)
+6. Increment either left/ right pointer value based on which max_left_height or max_right_height is lesser 
+7. Iterate using while loop until left < right
+8. Finally return the value of water 
