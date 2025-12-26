@@ -53,5 +53,19 @@ class Solution:
                 cur+=1
                 max_count = max(count, max_count)
         return max_count 
+
+#Attempt 4
+class Solution:
+    def longestConsecutive(self, nums: List[int]) -> int:
+        max_consecutive = 0
+        nums_set = set(nums)
+        for cur in nums_set:
+            if cur-1 not in nums_set:
+                cur_consecutive = 0
+                while cur in nums_set:
+                    cur_consecutive+=1
+                    cur +=1
+                max_consecutive = max(max_consecutive, cur_consecutive)
+        return max_consecutive
     
 # Leetcode Link: https://leetcode.com/problems/longest-consecutive-sequence
